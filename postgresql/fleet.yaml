@@ -1,0 +1,4 @@
+helm:
+  chart: postgresql
+  values:
+    name: postgresql-chart
