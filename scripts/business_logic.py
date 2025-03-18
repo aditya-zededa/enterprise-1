@@ -10,7 +10,7 @@ new_height = 640
 output_dir = 'extracted_frames'
 os.makedirs(output_dir, exist_ok=True)
 
-connection_string = 'DefaultEndpointst'
+connection_string = ''
 container_name = 'retrain-images'
 
 def cleanup_resources(video_capture):
