@@ -10,7 +10,7 @@ new_height = 640
 output_dir = 'extracted_frames'
 os.makedirs(output_dir, exist_ok=True)
 
-connection_string = 'DefaultEndpointsProtocol=https;AccountName=arziedemo;AccountKey=ZNDjtBq2EoVq5skOKAy/dgFU0MUW5WRvKVoiNrrUdbuaQxxreSy3nLZjcciYI5FRDFoqAaQMJaTG+AStOYQ8cw==;EndpointSuffix=core.windows.net'
+connection_string = 'DefaultEndpointst'
 container_name = 'retrain-images'
 
 def cleanup_resources(video_capture):
