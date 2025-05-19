@@ -29,9 +29,6 @@ jobs:
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
 
-            - name: Commit and push changes if any
-
-
       - name: Commit and push changes if any
         env:
             TOKEN: ${{ secrets.general-write }}
