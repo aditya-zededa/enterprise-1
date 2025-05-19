@@ -36,6 +36,7 @@ jobs:
           if [[ `git status --porcelain` ]]; then
             git add charts
             git commit -m "Sync charts folder from rancher/charts"
+            git remote set-url origin https://x-access-token:${TOKEN}@github.com/aditya-zededa/enterprise-1.git
             git push origin main
           else
             echo "No changes to commit"
