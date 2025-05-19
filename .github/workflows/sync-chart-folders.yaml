@@ -1,0 +1,38 @@
+name: Sync Rancher Charts Folder
+
+on:
+  schedule:
+    - cron: '*/15 * * * *' # Every 15 minutes
+  workflow_dispatch: # Manual run option
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout your personal repo
+        uses: actions/checkout@v3
+
+      - name: Clone rancher/charts repo
+        run: |
+          git clone --depth 1 https://github.com/rancher/charts.git temp-charts
+
+      - name: Copy only the charts folder
+        run: |
+          rm -rf charts
+          cp -r temp-charts/charts ./charts
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Commit and push changes if any
+        run: |
+          if [[ `git status --porcelain` ]]; then
+            git add charts
+            git commit -m "Sync charts folder from rancher/charts"
+            git push origin main
+          else
+            echo "No changes to commit"
+          fi
